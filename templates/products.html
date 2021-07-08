@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+	<title>All Products Shopping</title>
+	<link rel="stylesheet" type="text/css" href="static/style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+	<div class="header">
+	<div class="container">
+	<div class="navbar">
+		<div class="logo">
+			<a href="/home"><img src="static/images/logo.jpg" width="125px"></a>
+		</div>
+		<nav>
+			<ul id="MenuItems">
+				<li><a href="/home"><b>Home</b></a></li>
+				<li><a href="/products"><b>Products</b></a></li>
+				<li><a href="/about"><b>About</b></a></li>
+				<li><a href="/contact"><b>Contact</b></a></li>
+				<li><a href="/account"><b>Account</b></a></li>
+				<li>
+				 {% for user in users %}
+                     {% if request.session.email == user.email %}
+                      <span class="mb-0 text-sm  font-weight-bold">Hii, {{user.username}}</span>
+                     {% endif %}
+                     {% endfor %}
+				</li>
+				<li>
+				{% for user in users %}
+                     {% if request.session.email == user.email %}
+                <a href="/logout" class="dropdown-item">
+                  <i class="ni ni-user-run"></i>
+                  <span>Logout</span>
+				  {% endif %}
+                {% endfor %}
+                </a>
+				</li>
+			</ul>
+		</nav>
+		<a href="/cart"><img src="static/images/cart.png" width="25px" height="25px"></a>
+		<img src="static/images/menu.png" class="menu-icon" onclick="menutoggle()">
+	</div>
+</div>
+</div>
+
+<!---featured product-->
+<div class="small container">
+
+	<div class="row row-2">
+		<h2>All Products</h2>
+		<select>
+			<option>Default Sorting</option>
+			<option>Sort by price</option>
+			<option>Sort by popularity</option>
+			<option>Sort by rating</option>
+			<option>Sort by sale</option>
+		</select>
+	</div>
+
+	<div class="row">
+		<div class="col-4">
+			<a href="/product-details"><img src="static/images/product-1.jpg"></a>
+			<a href="/product-details"><h4><b>Dress</b></h4></a>
+			<div class="rating">
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star" aria-hidden="true"></i>
+			</div>
+			<p>Rs.2000</p>
+		</div>
+		<div class="col-4">
+			<img src="static/images/product-2.jpg">
+			<h4><b>Tops</b></h4>
+			<div class="rating">
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star-o" aria-hidden="true"></i>
+			</div>
+			<p>Rs.1212</p>
+		</div>
+		<div class="col-4">
+			<img src="static/images/product-3.jpg">
+			<h4><b>Crop Top</b></h4>
+			<div class="rating">
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star-half-o" aria-hidden="true"></i>
+				<i class="fa fa-star-o" aria-hidden="true"></i>
+			</div>
+			<p>Rs.1000</p>
+		</div>
+		<div class="col-4">
+			<img src="static/images/product-4.webp">
+			<h4><b>Floral</b></h4>
+			<div class="rating">
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star-o" aria-hidden="true"></i>
+			</div>
+			<p>Rs.999</p>
+		</div>
+	</div>
+<div class="row">
+		<div class="col-4">
+			<img src="static/images/product-5.webp">
+			<h4><b>Dress</b></h4>
+			<div class="rating">
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star-o" aria-hidden="true"></i>
+				<i class="fa fa-star-o" aria-hidden="true"></i>
+			</div>
+			<p>Rs.1200</p>
+		</div>
+		<div class="col-4">
+			<img src="static/images/product-6.jpg">
+			<h4><b>Skirt</b></h4>
+			<div class="rating">
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star-half-o" aria-hidden="true"></i>
+				<i class="fa fa-star-o" aria-hidden="true"></i>
+			</div>
+			<p>Rs.800</p>
+		</div>
+		<div class="col-4">
+			<img src="static/images/product-7.webp">
+			<h4><b>Dress</b></h4>
+			<div class="rating">
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star-o" aria-hidden="true"></i>
+			</div>
+			<p>Rs.1258</p>
+		</div>
+		<div class="col-4">
+			<img src="static/images/product-8.webp">
+			<h4><b>Kurti</b></h4>
+			<div class="rating">
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star-o" aria-hidden="true"></i>
+			</div>
+			<p>Rs.1000</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-4">
+			<img src="static/images/product-9.webp">
+			<h4><b>Jeans</b></h4>
+			<div class="rating">
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star-o" aria-hidden="true"></i>
+				<i class="fa fa-star-o" aria-hidden="true"></i>
+			</div>
+			<p>Rs.1500</p>
+		</div>
+		<div class="col-4">
+			<img src="static/images/product-10.jpg">
+			<h4><b>Denim</b></h4>
+			<div class="rating">
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star-half-o" aria-hidden="true"></i>
+				<i class="fa fa-star-o" aria-hidden="true"></i>
+			</div>
+			<p>Rs.1800</p>
+		</div>
+		<div class="col-4">
+			<img src="static/images/product-11.jpg">
+			<h4><b>Pencil Skirt</b></h4>
+			<div class="rating">
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star-half-o" aria-hidden="true"></i>
+			</div>
+			<p>Rs.2500</p>
+		</div>
+		<div class="col-4">
+			<img src="static/images/product-12.jpg">
+			<h4><b>Floral Skirt</b></h4>
+			<div class="rating">
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star-o" aria-hidden="true"></i>
+			</div>
+			<p>Rs.1999</p>
+		</div>
+	</div>
+<div class="page-btn">
+	<span>1</span>
+	<span>2</span>
+	<span>3</span>
+	<span>4</span>
+	<span>&#8594;</span>
+</div>
+</div>
+
+<!---footer-->
+<div class="footer">
+	<div class="container">
+		<div class="row">
+			<div class="footer-col-1">
+				<h3>Download Our App</h3>
+				<p>Download App for Android and ios mobile phone.</p>
+			    <div class="app-logo">
+			    	<img src="static/images/play-store.png">
+			    	<img src="static/images/app-store.png">
+			    </div>
+			</div>
+			<div class="footer-col-2">
+				<img src="static/images/logo.jpg" width="125px">
+			</div>
+			<div class="footer-col-3">
+				<h3>Useful Links</h3>
+				<ul>
+					<li>Coupons</li>
+					<li>Blog Post</li>
+					<li>Return Policy</li>
+					<li>Join Affiliate</li>
+				</ul>
+			</div>
+			<div class="footer-col-4">
+				<h3>Useful Links</h3>
+				<ul>
+					<li>Facebook</li>
+					<li>Twitter</li>
+					<li>Instagram</li>
+					<li>Youtube</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	var MenuItems = document.getElementById("MenuItems");
+	MenuItems.style.maxHeight = "0px";
+	function menutoggle(){
+		if(MenuItems.style.maxHeight == "0px")
+		{
+			MenuItems.style.maxHeight = "200px";
+		}
+		else
+		{
+			MenuItems.style.maxHeight = "0px";
+		}
+	}
+</script>
+
+</body>
+</html>

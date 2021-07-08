@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+	<title>All Products Shopping</title>
+	<link rel="stylesheet" type="text/css" href="static/style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+	<div class="header">
+	<div class="container">
+	<div class="navbar">
+		<div class="logo">
+			<a href="/home"><img src="static/images/logo.jpg" width="125px"></a>
+		</div>
+		<nav>
+			<ul id="MenuItems">
+				<li><a href="/home"><b>Home</b></a></li>
+				<li><a href="/products"><b>Products</b></a></li>
+				<li><a href="/about"><b>About</b></a></li>
+				<li><a href="/contact"><b>Contact</b></a></li>
+				<li><a href="/account"><b>Account</b></a></li>
+				<li>
+				 {% for user in users %}
+                     {% if request.session.email == user.email %}
+                      <span class="mb-0 text-sm  font-weight-bold">Hii, {{user.username}}</span>
+                     {% endif %}
+                     {% endfor %}
+				</li>
+				<li>
+				{% for user in users %}
+                     {% if request.session.email == user.email %}
+                <a href="/logout" class="dropdown-item">
+                  <i class="ni ni-user-run"></i>
+                  <span>Logout</span>
+				  {% endif %}
+                {% endfor %}
+                </a>
+				</li>
+			</ul>
+		</nav>
+		<a href="/cart"><img src="static/images/cart.png" width="25px" height="25px"></a>
+		<img src="static/images/menu.png" class="menu-icon" onclick="menutoggle()">
+	</div>
+</div>
+</div>
+
+<div class="about">
+<div class="container">
+<h1>About Us</h1><br>
+ <p> &ensp; &ensp; &ensp; &ensp; &ensp; It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p><br>
+<p>&ensp; &ensp; &ensp; &ensp; &ensp; Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p><br>
+<p>&ensp; &ensp; &ensp; &ensp; &ensp; Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><br><br>
+</div>
+</div>
+
+<!---footer-->
+<div class="footer">
+	<div class="container">
+		<div class="row">
+			<div class="footer-col-1">
+				<h3>Download Our App</h3>
+				<p>Download App for Android and ios mobile phone.</p>
+			    <div class="app-logo">
+			    	<img src="static/images/play-store.png">
+			    	<img src="static/images/app-store.png">
+			    </div>
+			</div>
+			<div class="footer-col-2">
+				<img src="static/images/logo.jpg" width="125px">
+			</div>
+			<div class="footer-col-3">
+				<h3>Useful Links</h3>
+				<ul>
+					<li>Coupons</li>
+					<li>Blog Post</li>
+					<li>Return Policy</li>
+					<li>Join Affiliate</li>
+				</ul>
+			</div>
+			<div class="footer-col-4">
+				<h3>Useful Links</h3>
+				<ul>
+					<li>Facebook</li>
+					<li>Twitter</li>
+					<li>Instagram</li>
+					<li>Youtube</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	var MenuItems = document.getElementById("MenuItems");
+	MenuItems.style.maxHeight = "0px";
+	function menutoggle(){
+		if(MenuItems.style.maxHeight == "0px")
+		{
+			MenuItems.style.maxHeight = "200px";
+		}
+		else
+		{
+			MenuItems.style.maxHeight = "0px";
+		}
+	}
+</script>
+
+
+
+</body>
+</html>
